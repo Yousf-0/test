@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenges</title>
+  <style>
+    /* Reset and basic styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      background-image: url("psign.jpeg");
+      background-size: cover;
+      color: #333;
+    }
+
+    .NavigationBar {
+      display: flex;
+      justify-content: center;
+      background-color: rgb(0, 0, 0);
+      padding: 15px 0;
+    }
+
+    .NavigationBar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    .NavigationBar a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    .dish-container {
+      margin-top: 30px;
+    }
+
+    .dish-container img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .dish-container img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="NavigationBar">
+    <a href="index.html">Home</a>
+    <a href="cuisines.html">All Cuisines</a>
+    <a href="challenges.html">Challenges</a>
+    <a href="UserSuggestions.html">Suggestions</a>
+    <a href="AboutUs.html">About Us</a>
+  </div>
+
+  <!-- Container -->
+  <div class="container">
+    <h1>Challenges</h1><br>
+    <p>Click the button to generate a random dish challenge!</p><br><br>
+    <button onclick="generateDish()">Get Random Dish</button>
+
+    <!-- Dish Display -->
+    <div class="dish-container" id="dish-container">
+      <!-- Content will be dynamically inserted -->
+    </div>
+  </div>
+
+  <script>
+    // Dishes Data
+    const dishes = [
+      {
+        name: "Alfredo Pasta",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbRcE0WH7_qntHFObLoZeu92eP_fD0vuGoAQ&s",
+        page: "alfredo pasta.html"
+      },
+      {
+        name: "Mutton Mandi",
+        image: "https://www.tasteandflavors.com/wp-content/uploads/2023/06/Australian-Lamb-Mandi-Image-FB.jpg",
+        page: "mutton mandi.html"
+      },
+      {
+        name: "Ranch Pizza",
+        image: "https://www.litehousefoods.com/wp-content/uploads/2021/10/300-5985-aspect-ratio-782-521.jpg",
+        page: "ranch pizza.html"
+      },
+      {
+        name: "Shawarma Platter",
+        image: "https://www.pipercooks.com/wp-content/uploads/2022/07/chicken-shawarma-plate-10.jpg",
+        page: "shawarma platter.html"
+      },
+      {
+        name: "Fish & Chips",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG9OfLFvmUx3XKTQId_Ilg4ed9g-EKpnHukw&s",
+        page: "fish & chips.html"
+      }
+    ];
+
+    // Function to generate a random dish
+// Function to generate a random dish
+function generateDish() {
+  const randomIndex = Math.floor(Math.random() * dishes.length);
+  const dish = dishes[randomIndex];
+
+  // Display the random dish with its name
+  const dishContainer = document.getElementById("dish-container");
+  var content =     '<a href="' + dish.page + '">' +
+    '<img src="' + dish.image + '" alt="' + dish.name + '" title="Go to ' + dish.name + '"><br><br>' +
+    '</a>' +
+    '<p>' + dish.name + '</p>';
+
+  dishContainer.innerHTML = content;
+  
+}
+
+
+  </script>
+</body>
+</html>

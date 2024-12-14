@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredients</title>
+
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background: url(https://img.freepik.com/premium-vector/malaysian-food-hand-drawn-vector-seamless-pattern-asian-traditional-cuisine-realistic-background-backdrop-chinese-meal-thai-gourmet-snacks-vintage-wrapping-paper-wallpaper-design_198278-6798.jpg?semt=ais_hybrid);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .NavigationBar {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(0, 0, 0);
+            padding: 15px 0;
+        }
+
+        .NavigationBar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .NavigationBar a:hover {
+            text-decoration: underline;
+        }
+
+        .Ingerdient {
+            text-align: center;
+            width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+
+        .select-container {
+            background-color: #ffab40;
+            border-radius: 9px;
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .input {
+            background-color: rgb(226, 155, 13);
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bolder;
+            padding: 10px 20px;
+            margin: 10px 5px;
+        }
+
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div class="NavigationBar">
+        <a href="index.html">Home</a>
+        <a href="cuisines.html">All Cuisines</a>
+        <a href="Challenges.html">Challenges</a>
+        <a href="UserSuggestions.html">Suggestions</a>
+        <a href="AboutUs.html">About Us</a>
+    </div>
+
+    <div class="Ingerdient">
+        <form id="myform" method="post">
+            <h3>To Make Your Meal</h3>
+            <p><strong>First Select Your Ingredients</strong></p>
+
+            <select class="select-container" id="ingredient1">
+                <option selected>Select Ingredient</option>
+                <option>Meat</option>
+                <option>Chicken</option>
+                <option>Fish</option>
+            </select>
+
+            <select class="select-container" id="ingredient2">
+                <option selected>Select Ingredient</option>
+                <option>Rice</option>
+                <option>Bread</option>
+                <option>Pasta</option>
+            </select>
+
+            <select class="select-container" id="ingredient3">
+                <option selected>Select Ingredient</option>
+                <option>Tomato</option>
+                <option>Hummus</option>
+                <option>Potato</option>
+            </select>
+
+            <br>
+
+            <input class="btn" type="reset" value="Reset Ingredients" />
+            <button class="btn" type="submit">Find Recipe</button>
+        </form>
+    </div>
+
+<script>
+        document.getElementById("myform").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const ingredient1 = document.getElementById("ingredient1").value;
+            const ingredient2 = document.getElementById("ingredient2").value;
+            const ingredient3 = document.getElementById("ingredient3").value;
+
+            let dish = "";
+
+            // Check the selected ingredients
+            if (
+                ingredient1 === "Meat" &&
+                ingredient2 === "Rice" &&
+                (ingredient3 === "Tomato" || ingredient3 === "Hummus" || ingredient3 === "Potato" || ingredient3 === "Select Ingredient")
+            ) {
+                dish = "mutton mandi.html"; // go to mutton mandi page
+            } else if (
+                ingredient1 === "Chicken" &&
+                ingredient2 === "Pasta" &&
+                (ingredient3 === "Tomato" || ingredient3 === "Hummus" || ingredient3 === "Potato" || ingredient3 === "Select Ingredient")
+            ) {
+                dish = "alfredo pasta.html"; // go to alfredo pasta page
+            } else if (
+                ingredient1 === "Fish" &&
+                (ingredient2 === "Rice" || ingredient2 === "Bread" || ingredient2 === "Pasta" || ingredient2 === "Select Ingredient") &&
+                ingredient3 === "Potato"
+            ) {
+                dish = "fish & chips.html"; // go to fish & chips page
+            } else if (ingredient1 === "Chicken" && ingredient2 === "Bread" && ingredient3 === "Tomato") {
+                dish = "ranch pizza.html"; // go to ranch pizza page
+            } else if (ingredient1 === "Chicken" && ingredient2 === "Bread" && ingredient3 === "Hummus") {
+                dish = "shawerma platter.html"; // go to shawerma platter page
+            }
+
+            if (dish) {
+                window.location.href = dish; 
+            }
+            else {
+                window.alert("No matching recipe found. Please refine your selection! ");
+            }
+        });
+</script>    
+    
+</body>
+
+</html>
